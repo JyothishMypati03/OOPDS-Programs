@@ -1,55 +1,67 @@
-## UC7 - Refactor the Code to Write a Class Method to Compute Employee Wage
+# Employee Wage Computation
 
-### Description
+## Project Description
 
-This use case refactors the Employee Wage Computation program by moving the wage calculation logic into a separate class method named `computeEmployeeWage()`.
+This project is a Java-based Employee Wage Computation program developed using Git branching workflow.  
+It demonstrates employee attendance checking, daily wage calculation, part-time wage calculation, switch-case usage, monthly wage calculation, wage computation until a condition is reached, and refactoring using a class method.
 
-### Objectives
+## Features Implemented
 
-* Improve code readability.
-* Improve code maintainability.
-* Reuse employee wage computation logic.
-* Separate business logic from the main method.
+### UC1 - Check Employee Attendance
+- Employee attendance is checked using the Random class.
+- Output shows whether the employee is present or absent.
 
-### Assumptions
+### UC2 - Calculate Daily Employee Wage
+- Wage per hour is 20.
+- Full day working hours are 8.
+- Daily wage is calculated as:
+    - Wage = Wage Per Hour × Full Day Hours
 
-* Wage Per Hour = 20
-* Full Time Hours = 8
-* Part Time Hours = 4
-* Maximum Working Days = 20
-* Maximum Working Hours = 100
+### UC3 - Add Part Time Employee & Wage
+- Part-time employee support is added.
+- Full-time hours = 8
+- Part-time hours = 4
+- Wage is calculated based on employee type.
 
-### Algorithm
+### UC4 - Solving Using Switch Case Statement
+- The if-else logic is replaced with a switch-case statement.
+- Employee type is determined using switch-case.
 
-1. Create a class method named `computeEmployeeWage()`.
-2. Initialize employee wage parameters.
-3. Generate employee attendance randomly.
-4. Determine employee working hours using a switch-case statement.
-5. Calculate daily employee wage.
-6. Continue calculation until:
+### UC5 - Calculating Wages for a Month
+- Employee wage is calculated for 20 working days.
+- Attendance is checked randomly for each day.
+- Total monthly wage is calculated.
 
-    * Working Days reach 20
-    * OR Working Hours reach 100
-7. Display the total employee wage.
-8. Call the method from the `main()` method.
+### UC6 - Calculate Wages Till a Condition of Total Working Hours or Days is Reached
+- Maximum working days = 20
+- Maximum working hours = 100
+- Wage calculation stops when either condition is reached.
 
-### Class Method
+### UC7 - Refactor the Code to Write a Class Method to Compute Employee Wage
+- Wage calculation logic is moved into a class method.
+- Code is refactored for better readability and reusability.
 
-```java
-public static void computeEmployeeWage()
-```
+## Assumptions
 
-### Benefits of Refactoring
+- Wage Per Hour = 20
+- Full Time Hours = 8
+- Part Time Hours = 4
+- Maximum Working Days = 20
+- Maximum Working Hours = 100
 
-* Logic is moved out of the `main()` method.
-* Code becomes easier to understand.
-* Employee wage computation can be reused.
-* Program structure becomes cleaner.
+## Output
 
-### Sample Output
+The output varies because employee attendance is generated randomly.
+
+## Branch Structure
 
 ```text
-Wage : 1840
-```
-
-**Note:** Output may vary because employee attendance is generated randomly.
+main
+└── dev
+    ├── feature/UC1-Attendance
+    ├── feature/UC2-DailyWage
+    ├── feature/UC3-PartTimeWage
+    ├── feature/UC4-SwitchCase
+    ├── feature/UC5-MonthlyWage
+    ├── feature/UC6-MaxHoursAndDays
+    └── feature/UC7-RefactorClassMethod
