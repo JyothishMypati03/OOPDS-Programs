@@ -1,32 +1,29 @@
-# Employee Wage Computation
-
-## UC1 - Check Employee Attendance
+## UC2 - Calculate Daily Employee Wage
 
 ### Description
 
-This use case checks whether an employee is present or absent using a random attendance check.
+This use case calculates the daily employee wage when the employee is present.
+
+### Assumptions
+
+* Wage Per Hour = 20
+* Full Day Working Hours = 8
 
 ### Algorithm
 
-1. Generate a random number using the Random class.
-2. If the generated value is `1`, the employee is present.
-3. If the generated value is `0`, the employee is absent.
-4. Display the attendance status.
+1. Generate employee attendance using the Random class.
+2. If the employee is present:
 
-### Implementation Details
+    * Calculate daily wage.
+    * Wage = Wage Per Hour × Full Day Hours.
+3. Display the daily wage.
 
-* Random values generated: `0` or `1`
-* `0` → Employee Absent
-* `1` → Employee Present
+### Calculation
+
+Daily Wage = 20 × 8 = 160
 
 ### Sample Output
 
 ```text
-Employee is Present
-```
-
-or
-
-```text
-Employee is Absent
+Wage : 160
 ```
