@@ -1,15 +1,16 @@
-## UC5 - Calculating Wages for a Month
+## UC6 - Calculate Wages Till a Condition of Total Working Hours or Days is Reached
 
 ### Description
 
-This use case calculates the employee wage for a month by considering 20 working days and randomly determining whether the employee is Full Time, Part Time, or Absent each day.
+This use case calculates employee wages until either the maximum working days or maximum working hours for a month is reached.
 
 ### Assumptions
 
 * Wage Per Hour = 20
 * Full Time Hours = 8
 * Part Time Hours = 4
-* Working Days Per Month = 20
+* Maximum Working Days = 20
+* Maximum Working Hours = 100
 
 ### Employee Types
 
@@ -20,24 +21,17 @@ This use case calculates the employee wage for a month by considering 20 working
 ### Algorithm
 
 1. Initialize employee wage parameters.
+2. Initialize total working days, total working hours, and total wage.
+3. Continue wage calculation while:
 
-2. Iterate through 20 working days.
-
-3. Generate a random employee status:
-
-    * `0` → Absent
-    * `1` → Full Time
-    * `2` → Part Time
-
-4. Determine working hours using a switch-case statement.
-
-5. Calculate daily wage:
-
-   `Daily Wage = Working Hours × Wage Per Hour`
-
-6. Add the daily wage to the monthly wage.
-
-7. Display the total monthly employee wage.
+    * Working Days < 20
+    * Working Hours < 100
+4. Generate employee attendance randomly.
+5. Determine working hours using a switch-case statement.
+6. Add daily working hours to total working hours.
+7. Calculate daily wage and add it to total wage.
+8. Stop when either condition is reached.
+9. Display the total employee wage.
 
 ### Wage Calculation
 
@@ -45,14 +39,18 @@ This use case calculates the employee wage for a month by considering 20 working
 * Part Time Wage = `4 × 20 = 80`
 * Absent Wage = `0 × 20 = 0`
 
-### Monthly Wage Formula
+### Stopping Condition
 
-`Monthly Wage = Sum of Daily Wages for 20 Working Days`
+The program stops when:
+
+* Total Working Days reaches **20**
+  **OR**
+* Total Working Hours reaches **100**
 
 ### Sample Output
 
 ```text
-Wage : 2320
+Wage : 1840
 ```
 
 **Note:** The output may vary for each execution because employee attendance is generated randomly.

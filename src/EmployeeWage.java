@@ -5,17 +5,28 @@ public class EmployeeWage {
     public static void  main(String[] args) {
         Random random = new Random();
 
-
+        // Employee wage and working hour constants
         int wagePerHour = 20 ;
         int partTimeHour = 4;
         int fullDayHour  = 8;
-        int workingDaysPerMonth = 20;
+
+        // Maximum working days and hours for a month
+        int totalWorkingDays = 20;
+        int totalWorkinghours = 100;
 
 
+        // Variables to track total wage, days, and hours worked
         int wage = 0;
+        int workingDays = 0;
+        int WorkingHours = 0;
 
-        // Loop through each working day in the month
-        for(int i=0; i<workingDaysPerMonth; i++){
+
+
+        // Loop until maximum working days or working hours are reached
+        for(; workingDays < totalWorkingDays &&
+                WorkingHours < totalWorkinghours; ){
+
+                workingDays++;
 
             // Generate random attendance status:
             int  employeeCheck = random.nextInt(3);
@@ -32,6 +43,8 @@ public class EmployeeWage {
 
             }
             // Calculate and add daily wage to total monthly wage
+
+            WorkingHours = WorkingHours + employee;
             wage = wage + (employee * wagePerHour);
         }
 
