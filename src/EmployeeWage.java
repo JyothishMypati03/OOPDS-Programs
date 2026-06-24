@@ -1,8 +1,8 @@
 import java.util.*;
 public class EmployeeWage {
 
+    public static void computeEmployeeWage(){
 
-    public static void  main(String[] args) {
         Random random = new Random();
 
         // Employee wage and working hour constants
@@ -26,7 +26,7 @@ public class EmployeeWage {
         for(; workingDays < totalWorkingDays &&
                 WorkingHours < totalWorkinghours; ){
 
-                workingDays++;
+            workingDays++;
 
             // Generate random attendance status:
             int  employeeCheck = random.nextInt(3);
@@ -53,13 +53,12 @@ public class EmployeeWage {
 
 
 
+    }
 
 
+    public static void  main(String[] args) {
 
-
-
-
-
+            computeEmployeeWage();
 
     }
 }

@@ -1,8 +1,15 @@
-## UC6 - Calculate Wages Till a Condition of Total Working Hours or Days is Reached
+## UC7 - Refactor the Code to Write a Class Method to Compute Employee Wage
 
 ### Description
 
-This use case calculates employee wages until either the maximum working days or maximum working hours for a month is reached.
+This use case refactors the Employee Wage Computation program by moving the wage calculation logic into a separate class method named `computeEmployeeWage()`.
+
+### Objectives
+
+* Improve code readability.
+* Improve code maintainability.
+* Reuse employee wage computation logic.
+* Separate business logic from the main method.
 
 ### Assumptions
 
@@ -12,40 +19,32 @@ This use case calculates employee wages until either the maximum working days or
 * Maximum Working Days = 20
 * Maximum Working Hours = 100
 
-### Employee Types
-
-* Full Time Employee → 8 Hours
-* Part Time Employee → 4 Hours
-* Absent Employee → 0 Hours
-
 ### Algorithm
 
-1. Initialize employee wage parameters.
-2. Initialize total working days, total working hours, and total wage.
-3. Continue wage calculation while:
+1. Create a class method named `computeEmployeeWage()`.
+2. Initialize employee wage parameters.
+3. Generate employee attendance randomly.
+4. Determine employee working hours using a switch-case statement.
+5. Calculate daily employee wage.
+6. Continue calculation until:
 
-    * Working Days < 20
-    * Working Hours < 100
-4. Generate employee attendance randomly.
-5. Determine working hours using a switch-case statement.
-6. Add daily working hours to total working hours.
-7. Calculate daily wage and add it to total wage.
-8. Stop when either condition is reached.
-9. Display the total employee wage.
+    * Working Days reach 20
+    * OR Working Hours reach 100
+7. Display the total employee wage.
+8. Call the method from the `main()` method.
 
-### Wage Calculation
+### Class Method
 
-* Full Time Wage = `8 × 20 = 160`
-* Part Time Wage = `4 × 20 = 80`
-* Absent Wage = `0 × 20 = 0`
+```java
+public static void computeEmployeeWage()
+```
 
-### Stopping Condition
+### Benefits of Refactoring
 
-The program stops when:
-
-* Total Working Days reaches **20**
-  **OR**
-* Total Working Hours reaches **100**
+* Logic is moved out of the `main()` method.
+* Code becomes easier to understand.
+* Employee wage computation can be reused.
+* Program structure becomes cleaner.
 
 ### Sample Output
 
@@ -53,4 +52,4 @@ The program stops when:
 Wage : 1840
 ```
 
-**Note:** The output may vary for each execution because employee attendance is generated randomly.
+**Note:** Output may vary because employee attendance is generated randomly.
