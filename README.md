@@ -1,8 +1,8 @@
-## UC3 - Add Part Time Employee & Wage
+## UC4 - Solving Using Switch Case Statement
 
 ### Description
 
-This use case adds support for both Full Time and Part Time employees and calculates employee wage based on working hours.
+This use case uses a Switch Case Statement to determine whether an employee is Full Time, Part Time, or Absent and calculates the employee wage accordingly.
 
 ### Assumptions
 
@@ -12,27 +12,23 @@ This use case adds support for both Full Time and Part Time employees and calcul
 
 ### Employee Types
 
-| Employee Type | Working Hours |
-| ------------- | ------------- |
-| Full Time     | 8             |
-| Part Time     | 4             |
-| Absent        | 0             |
+* Full Time Employee → 8 Hours
+* Part Time Employee → 4 Hours
+* Absent Employee → 0 Hours
 
 ### Algorithm
 
-1. Generate a random value between 0 and 2.
+1. Generate a random value between 0 and 2 using the Random class.
 
-2. If the value is:
+2. Use a switch-case statement to determine employee type.
 
-    * `0` → Employee is Absent
-    * `1` → Employee is Full Time
-    * `2` → Employee is Part Time
+3. Assign working hours based on employee type.
 
-3. Calculate employee wage using:
+4. Calculate employee wage using:
 
-   `Wage = Working Hours × Wage Per Hour`
+   `Employee Wage = Working Hours × Wage Per Hour`
 
-4. Display employee type and wage.
+5. Display employee type and wage.
 
 ### Wage Calculation
 

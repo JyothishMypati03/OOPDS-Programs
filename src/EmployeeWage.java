@@ -12,21 +12,27 @@ public class EmployeeWage {
 
         int employee = 0;
 
-        if(employeeCheck == 1){
 
-            employee = fullDayHour;
-            System.out.println("Full time employeee");
 
-        } else if (employeeCheck == 2) {
+        switch(employeeCheck) {
 
-            employee = partTimeHour;
-            System.out.println("Part time employee");
+            case 1 -> {
+                employee = fullDayHour;
+                System.out.println("Full time employeee");
+            }
 
-        }else {
+            case 2 ->{
 
-            System.out.println("Employee is absent");
+                employee = partTimeHour;
+                System.out.println("Part time employee");
+
+            }
+
+            default -> System.out.println("Employee is absent");
+
 
         }
+
 
 
         int wage = wagePerHour * employee ;
