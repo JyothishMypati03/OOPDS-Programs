@@ -3,23 +3,44 @@ public class EmployeeWage {
 
 
     public static void  main(String[] args) {
-
+        Random random = new Random();
+        int  employeeCheck = random.nextInt(3);
 
         int wagePerHour = 20 ;
-
+        int partTimeHour = 4;
         int fullDayHour  = 8;
 
-        int wage = wagePerHour * fullDayHour ;
+        int employee = 0;
 
-        Random random = new Random();
+        if(employeeCheck == 1){
 
-        int attendence = random.nextInt(2);
+            employee = fullDayHour;
+            System.out.println("Full time employeee");
 
-        if( attendence == 1){
+        } else if (employeeCheck == 2) {
 
-            System.out.println("Wage :" + wage);
+            employee = partTimeHour;
+            System.out.println("Part time employee");
+
+        }else {
+
+            System.out.println("Employee is absent");
 
         }
+
+
+        int wage = wagePerHour * employee ;
+
+        System.out.println("Wage :" + wage);
+
+
+
+
+
+
+
+
+
 
 
     }
