@@ -1,24 +1,32 @@
 # Employee Wage Computation
 
-## Description
-This project demonstrates Employee Wage Computation using Java and Git branching strategy.
+## UC1 - Check Employee Attendance
 
-## Branch Structure
+### Description
+
+This use case checks whether an employee is present or absent using a random attendance check.
+
+### Algorithm
+
+1. Generate a random number using the Random class.
+2. If the generated value is `1`, the employee is present.
+3. If the generated value is `0`, the employee is absent.
+4. Display the attendance status.
+
+### Implementation Details
+
+* Random values generated: `0` or `1`
+* `0` → Employee Absent
+* `1` → Employee Present
+
+### Sample Output
 
 ```text
-main
-└── dev
-    ├── feature/UC1-Attendance
-    ├── feature/UC2-DailyWage
-    ├── feature/UC3-PartTimeWage
-    ├── feature/UC4-SwitchCase
-    ├── feature/UC5-MonthlyWage
-    ├── feature/UC6-MaxHoursAndDays
-    └── feature/UC7-RefactorClassMethod
+Employee is Present
 ```
 
-## Welcome Message
+or
 
-Welcome to Employee
-Wage Computation
-Program on Master Branch
+```text
+Employee is Absent
+```
