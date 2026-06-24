@@ -1,14 +1,15 @@
-## UC4 - Solving Using Switch Case Statement
+## UC5 - Calculating Wages for a Month
 
 ### Description
 
-This use case uses a Switch Case Statement to determine whether an employee is Full Time, Part Time, or Absent and calculates the employee wage accordingly.
+This use case calculates the employee wage for a month by considering 20 working days and randomly determining whether the employee is Full Time, Part Time, or Absent each day.
 
 ### Assumptions
 
 * Wage Per Hour = 20
 * Full Time Hours = 8
 * Part Time Hours = 4
+* Working Days Per Month = 20
 
 ### Employee Types
 
@@ -18,17 +19,25 @@ This use case uses a Switch Case Statement to determine whether an employee is F
 
 ### Algorithm
 
-1. Generate a random value between 0 and 2 using the Random class.
+1. Initialize employee wage parameters.
 
-2. Use a switch-case statement to determine employee type.
+2. Iterate through 20 working days.
 
-3. Assign working hours based on employee type.
+3. Generate a random employee status:
 
-4. Calculate employee wage using:
+    * `0` → Absent
+    * `1` → Full Time
+    * `2` → Part Time
 
-   `Employee Wage = Working Hours × Wage Per Hour`
+4. Determine working hours using a switch-case statement.
 
-5. Display employee type and wage.
+5. Calculate daily wage:
+
+   `Daily Wage = Working Hours × Wage Per Hour`
+
+6. Add the daily wage to the monthly wage.
+
+7. Display the total monthly employee wage.
 
 ### Wage Calculation
 
@@ -36,23 +45,14 @@ This use case uses a Switch Case Statement to determine whether an employee is F
 * Part Time Wage = `4 × 20 = 80`
 * Absent Wage = `0 × 20 = 0`
 
+### Monthly Wage Formula
+
+`Monthly Wage = Sum of Daily Wages for 20 Working Days`
+
 ### Sample Output
 
 ```text
-Full time employee
-Wage : 160
+Wage : 2320
 ```
 
-or
-
-```text
-Part time employee
-Wage : 80
-```
-
-or
-
-```text
-Employee is absent
-Wage : 0
-```
+**Note:** The output may vary for each execution because employee attendance is generated randomly.
