@@ -1,63 +1,34 @@
 import java.util.*;
 public class EmpWageBuilder {
 
-    // Instance variable
-    private CompanyEmpWage company;
+    // Array to store multiple companies
+    private CompanyEmpWage[] companies;
+
+    // Variable to track number of companies
+    private int companyCount = 0;
 
     // Constructor
-    public EmpWageBuilder(CompanyEmpWage company) {
-        this.company = company;
+    public EmpWageBuilder(int size) {
+        companies = new CompanyEmpWage[size];
     }
 
-    // Method to compute employee wage
-    public void computeEmployeeWage() {
+    // Method to add company
+    public void addCompany(CompanyEmpWage company) {
 
-        Random random = new Random();
+        companies[companyCount] = company;
+        companyCount++;
+    }
 
-        // Employee working hour constants
-        int fullTimeHour = 8;
-        int partTimeHour = 4;
+    // Method to compute wage for all companies
+    public void computeEmployeeWages() {
 
-        // Variables to track working days, hours and total wage
-        int totalWorkingDays = 0;
-        int totalWorkingHours = 0;
-        int totalWage = 0;
+        for (int i = 0; i < companyCount; i++) {
 
-        // Continue until maximum working days or hours are reached
-        while (totalWorkingDays < company.getMaxWorkingDays() &&
-                totalWorkingHours < company.getMaxWorkingHours()) {
+            companies[i].computeEmployeeWage();
 
-            totalWorkingDays++;
-
-            // Generate random attendance
-            int employeeCheck = random.nextInt(3);
-
-            int employeeHours = 0;
-
-            // Determine employee working hours
-            switch (employeeCheck) {
-
-                case 1:
-                    employeeHours = fullTimeHour;
-                    break;
-
-                case 2:
-                    employeeHours = partTimeHour;
-                    break;
-
-                default:
-                    employeeHours = 0;
-            }
-
-            totalWorkingHours += employeeHours;
-            totalWage += employeeHours * company.getWagePerHour();
+            System.out.println("----------------------------");
+            System.out.println(companies[i]);
+            System.out.println("----------------------------");
         }
-
-        // Display result
-        System.out.println("------------------------------");
-        System.out.println("Company Name : " + company.getCompany());
-        System.out.println("Total Wage   : " + totalWage);
-        System.out.println("------------------------------");
     }
-
 }
