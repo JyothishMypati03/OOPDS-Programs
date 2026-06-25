@@ -1,18 +1,20 @@
 import java.util.*;
 public class EmployeeWage {
 
+   static   Random random = new Random();
+
+    // Employee wage and working hour constants
+    static int wagePerHour = 20 ;
+    static int partTimeHour = 4;
+    static int fullDayHour  = 8;
+
+    // Maximum working days and hours for a month
+    static int totalWorkingDays = 20;
+    static int totalWorkinghours = 100;
+
     public static void computeEmployeeWage(){
 
-        Random random = new Random();
 
-        // Employee wage and working hour constants
-        int wagePerHour = 20 ;
-        int partTimeHour = 4;
-        int fullDayHour  = 8;
-
-        // Maximum working days and hours for a month
-        int totalWorkingDays = 20;
-        int totalWorkinghours = 100;
 
 
         // Variables to track total wage, days, and hours worked
