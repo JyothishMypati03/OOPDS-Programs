@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import java.util.Random;
+
 public class CompanyEmpWage {
 
     // Instance variables
@@ -10,8 +12,10 @@ public class CompanyEmpWage {
     private int totalWage;
 
     // Constructor
-    public CompanyEmpWage(String company, int wagePerHour,
-                          int maxWorkingDays, int maxWorkingHours) {
+    public CompanyEmpWage(String company,
+                          int wagePerHour,
+                          int maxWorkingDays,
+                          int maxWorkingHours) {
 
         this.company = company;
         this.wagePerHour = wagePerHour;
@@ -62,6 +66,6 @@ public class CompanyEmpWage {
     public String toString() {
 
         return "Company Name : " + company +
-                "\nTotal Wage : " + totalWage;
+                "\nTotal Wage   : " + totalWage;
     }
 }

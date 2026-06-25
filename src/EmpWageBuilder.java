@@ -1,10 +1,10 @@
 import java.util.*;
-public class EmpWageBuilder {
+public class EmpWageBuilder implements IEmpWageBuilder {
 
-    // Array to store multiple companies
+    // Array of companies
     private CompanyEmpWage[] companies;
 
-    // Variable to track number of companies
+    // Company count
     private int companyCount = 0;
 
     // Constructor
@@ -12,23 +12,25 @@ public class EmpWageBuilder {
         companies = new CompanyEmpWage[size];
     }
 
-    // Method to add company
+    // Add company
+    @Override
     public void addCompany(CompanyEmpWage company) {
 
         companies[companyCount] = company;
         companyCount++;
     }
 
-    // Method to compute wage for all companies
+    // Compute wages
+    @Override
     public void computeEmployeeWages() {
 
         for (int i = 0; i < companyCount; i++) {
 
             companies[i].computeEmployeeWage();
 
-            System.out.println("----------------------------");
+            System.out.println("-------------------------");
             System.out.println(companies[i]);
-            System.out.println("----------------------------");
+            System.out.println("-------------------------");
         }
     }
 }
