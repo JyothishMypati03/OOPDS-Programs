@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class CompanyEmpWage {
 
+
     // Instance variables
     private String company;
     private int wagePerHour;

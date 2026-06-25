@@ -1,36 +1,29 @@
 import java.util.*;
+import java.util.ArrayList;
+
 public class EmpWageBuilder implements IEmpWageBuilder {
 
-    // Array of companies
-    private CompanyEmpWage[] companies;
-
-    // Company count
-    private int companyCount = 0;
-
-    // Constructor
-    public EmpWageBuilder(int size) {
-        companies = new CompanyEmpWage[size];
-    }
+    // ArrayList to store multiple companies
+    private ArrayList<CompanyEmpWage> companies = new ArrayList<>();
 
     // Add company
     @Override
     public void addCompany(CompanyEmpWage company) {
 
-        companies[companyCount] = company;
-        companyCount++;
+        companies.add(company);
     }
 
-    // Compute wages
+    // Compute wages for all companies
     @Override
     public void computeEmployeeWages() {
 
-        for (int i = 0; i < companyCount; i++) {
+        for (CompanyEmpWage company : companies) {
 
-            companies[i].computeEmployeeWage();
+            company.computeEmployeeWage();
 
-            System.out.println("-------------------------");
-            System.out.println(companies[i]);
-            System.out.println("-------------------------");
+            System.out.println("--------------------------");
+            System.out.println(company);
+            System.out.println("--------------------------");
         }
     }
 }

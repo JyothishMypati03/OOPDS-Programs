@@ -1,16 +1,16 @@
-## UC11 - Ability to Manage Employee Wage of Multiple Companies Using Interface Approach
+## UC12 - Refactor to Have a List of Multiple Companies to Manage Employee Wage
 
 ### Description
 
-This use case refactors the Employee Wage Computation program by introducing an interface. The `EmpWageBuilder` class implements the `IEmpWageBuilder` interface to manage employee wages for multiple companies. This improves flexibility, abstraction, and maintainability by separating the implementation from its contract.
+This use case refactors the Employee Wage Computation program by replacing the array of `CompanyEmpWage` objects with an `ArrayList`. The `EmpWageBuilder` class manages multiple companies dynamically using the `ArrayList` collection, making the application more flexible and scalable.
 
 ### Objectives
 
-* Manage employee wages for multiple companies using an interface.
-* Implement abstraction using Java interfaces.
-* Improve code flexibility and maintainability.
-* Continue managing multiple companies using a single `EmpWageBuilder` object.
-* Follow object-oriented programming principles.
+* Manage employee wages for multiple companies using an `ArrayList`.
+* Replace the fixed-size array with a dynamic collection.
+* Improve scalability and flexibility.
+* Continue using the interface-based design.
+* Simplify adding and managing companies.
 
 ### Assumptions
 
@@ -26,24 +26,24 @@ This use case refactors the Employee Wage Computation program by introducing an 
 
 ### Algorithm
 
-1. Create an interface named `IEmpWageBuilder`.
-2. Declare methods `addCompany()` and `computeEmployeeWages()` in the interface.
+1. Create a `CompanyEmpWage` class to store company details.
+2. Create an `IEmpWageBuilder` interface.
 3. Implement the interface in the `EmpWageBuilder` class.
-4. Create a `CompanyEmpWage` class to store company details.
-5. Store multiple company objects in an array.
-6. Add companies using the `addCompany()` method.
-7. Compute employee wages for all companies using the `computeEmployeeWages()` method.
-8. Access the implementation through the interface reference in the `main()` method.
+4. Replace the array of `CompanyEmpWage` objects with an `ArrayList<CompanyEmpWage>`.
+5. Add company objects to the `ArrayList` using the `addCompany()` method.
+6. Iterate through the `ArrayList`.
+7. Compute and display the employee wage for each company.
+8. Allow companies to be added dynamically without a fixed size.
 
 ### Interface
 
-```java id="v2eofn"
+```java
 public interface IEmpWageBuilder
 ```
 
 ### Classes Used
 
-```java id="ryxib9"
+```java
 IEmpWageBuilder
 CompanyEmpWage
 EmpWageBuilder
@@ -52,7 +52,7 @@ EmployeeWage
 
 ### Important Methods
 
-```java id="m7frzr"
+```java
 public void addCompany(CompanyEmpWage company)
 
 public void computeEmployeeWages()
@@ -60,29 +60,29 @@ public void computeEmployeeWages()
 
 ### Benefits
 
-* Introduces abstraction using interfaces.
-* Promotes loose coupling between interface and implementation.
-* Improves code reusability and flexibility.
-* Makes the application easier to extend and maintain.
-* Follows object-oriented design principles.
+* Uses `ArrayList` for dynamic storage.
+* Eliminates the limitations of fixed-size arrays.
+* Makes it easy to add any number of companies.
+* Improves scalability, flexibility, and maintainability.
+* Continues to follow object-oriented programming principles using interfaces.
 
 ### Sample Output
 
-```text id="e3qol6"
--------------------------
+```text
+--------------------------
 Company Name : TCS
 Total Wage   : 1840
--------------------------
+--------------------------
 
--------------------------
+--------------------------
 Company Name : Infosys
 Total Wage   : 2925
--------------------------
+--------------------------
 
--------------------------
+--------------------------
 Company Name : Wipro
 Total Wage   : 3600
--------------------------
+--------------------------
 ```
 
 **Note:** Output may vary because employee attendance is generated randomly.
