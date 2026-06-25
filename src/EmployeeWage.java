@@ -1,66 +1,77 @@
-import java.util.*;
+import java.util.Random;
+
 public class EmployeeWage {
 
-   static   Random random = new Random();
+    // Method to compute employee wage for a company
+    public static void computeEmployeeWage(String company,
+                                           int wagePerHour,
+                                           int maxWorkingDays,
+                                           int maxWorkingHours) {
 
-    // Employee wage and working hour constants
-    static int wagePerHour = 20 ;
-    static int partTimeHour = 4;
-    static int fullDayHour  = 8;
+        Random random = new Random();
 
-    // Maximum working days and hours for a month
-    static int totalWorkingDays = 20;
-    static int totalWorkinghours = 100;
+        // Employee working hour constants
+        int fullTimeHour = 8;
+        int partTimeHour = 4;
 
-    public static void computeEmployeeWage(){
+        // Variables to store total working days, hours and wage
+        int totalWorkingDays = 0;
+        int totalWorkingHours = 0;
+        int totalWage = 0;
 
+        // Continue until maximum working days or hours are reached
+        while (totalWorkingDays < maxWorkingDays &&
+                totalWorkingHours < maxWorkingHours) {
 
+            // Increment working day
+            totalWorkingDays++;
 
+            // Generate random attendance
+            // 0 = Absent
+            // 1 = Full Time
+            // 2 = Part Time
+            int employeeCheck = random.nextInt(3);
 
-        // Variables to track total wage, days, and hours worked
-        int wage = 0;
-        int workingDays = 0;
-        int WorkingHours = 0;
+            int employeeHours = 0;
 
+            // Determine employee working hours
+            switch (employeeCheck) {
 
+                case 1:
+                    employeeHours = fullTimeHour;
+                    break;
 
-        // Loop until maximum working days or working hours are reached
-        for(; workingDays < totalWorkingDays &&
-                WorkingHours < totalWorkinghours; ){
+                case 2:
+                    employeeHours = partTimeHour;
+                    break;
 
-            workingDays++;
-
-            // Generate random attendance status:
-            int  employeeCheck = random.nextInt(3);
-
-            int employee = 0;
-
-
-            // Determine employee working hours based on attendance
-            switch(employeeCheck) {
-
-                case 1 -> employee = fullDayHour;
-
-                case 2 -> employee = partTimeHour;
-
+                default:
+                    employeeHours = 0;
             }
-            // Calculate and add daily wage to total monthly wage
 
-            WorkingHours = WorkingHours + employee;
-            wage = wage + (employee * wagePerHour);
+            // Add today's working hours
+            totalWorkingHours += employeeHours;
+
+            // Calculate today's wage and add to total wage
+            totalWage += employeeHours * wagePerHour;
         }
 
-
-        System.out.println("Wage :" + wage);
-
-
-
+        // Display company wage details
+        System.out.println("--------------------------------");
+        System.out.println("Company Name        : " + company);
+        System.out.println("Wage Per Hour       : " + wagePerHour);
+        System.out.println("Working Days        : " + totalWorkingDays);
+        System.out.println("Working Hours       : " + totalWorkingHours);
+        System.out.println("Total Employee Wage : " + totalWage);
+        System.out.println("--------------------------------");
     }
 
+    public static void main(String[] args) {
 
-    public static void  main(String[] args) {
+        // Compute wage for Company 1
+        computeEmployeeWage("TCS", 20, 20, 100);
 
-            computeEmployeeWage();
-
+        // Compute wage for Company 2
+        computeEmployeeWage("Infosys", 25, 22, 120);
     }
 }

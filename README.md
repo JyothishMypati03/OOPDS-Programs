@@ -1,75 +1,77 @@
-## UC8 - Refactor the Code Using Class Variables and Class Method
+## UC8 - Compute Employee Wage for Multiple Companies
 
 ### Description
 
-This use case refactors the Employee Wage Computation program by replacing local variables with **class variables** and using a **class method** to compute the employee wage. This improves code organization and allows the wage computation logic to be reused throughout the program.
+This use case extends the Employee Wage Computation program to calculate wages for multiple companies. Each company has its own wage per hour, maximum working days, and maximum working hours. The employee wage is computed using a class method with function parameters instead of class variables.
 
 ### Objectives
 
-* Improve code readability.
-* Improve code maintainability.
-* Promote code reusability using a class method.
-* Store constant values as class variables.
-* Separate business logic from the `main()` method.
+* Compute employee wages for multiple companies.
+* Use function parameters instead of class variables.
+* Improve code reusability.
+* Reduce code duplication.
+* Make the program flexible for different company requirements.
 
 ### Assumptions
 
-* Wage Per Hour = 20
 * Full Time Hours = 8
 * Part Time Hours = 4
-* Maximum Working Days = 20
-* Maximum Working Hours = 100
+* Employee attendance is generated randomly.
+* Each company has its own:
+
+    * Wage Per Hour
+    * Maximum Working Days
+    * Maximum Working Hours
 
 ### Algorithm
 
-1. Declare employee wage constants as class variables.
-2. Create a class method named `computeEmployeeWage()`.
-3. Initialize variables to track total working days, working hours, and total wage.
-4. Generate employee attendance randomly.
-5. Determine employee working hours using a `switch-case` statement.
-6. Calculate the daily employee wage.
-7. Continue calculation until:
+1. Create a class method named `computeEmployeeWage()`.
+2. Pass the company name, wage per hour, maximum working days, and maximum working hours as function parameters.
+3. Generate employee attendance randomly.
+4. Determine employee working hours using a switch-case statement.
+5. Calculate the daily employee wage.
+6. Continue wage calculation until:
 
-    * Working Days reach **20**
+    * Maximum Working Days are reached
     * **OR**
-    * Working Hours reach **100**
-8. Display:
-
-    * Total Working Days
-    * Total Working Hours
-    * Total Employee Wage
-9. Call the `computeEmployeeWage()` method from the `main()` method.
-
-### Class Variables
-
-```java
-static final int WAGE_PER_HOUR = 20;
-static final int PART_TIME_HOUR = 4;
-static final int FULL_TIME_HOUR = 8;
-static final int MAX_WORKING_DAYS = 20;
-static final int MAX_WORKING_HOURS = 100;
-```
+    * Maximum Working Hours are reached
+7. Display the employee wage details for the company.
+8. Repeat the process for multiple companies by calling the method with different parameter values.
 
 ### Class Method
 
 ```java
-public static void computeEmployeeWage()
+public static void computeEmployeeWage(String company,
+                                       int wagePerHour,
+                                       int maxWorkingDays,
+                                       int maxWorkingHours)
 ```
 
-### Benefits of Refactoring
+### Benefits
 
-* Constant values are maintained as class variables.
-* Code becomes cleaner and easier to maintain.
-* Employee wage computation logic is reusable.
-* Reduces duplication and improves program structure.
-* Makes future enhancements easier.
+* Supports multiple companies with different wage policies.
+* Eliminates hard-coded company values.
+* Improves code reusability and flexibility.
+* Makes the program easier to maintain and extend.
 
 ### Sample Output
 
 ```text
-Total Working Days  : 20
-Total Working Hours : 100
-Total Wage          : 1840
+--------------------------------
+Company Name        : TCS
+Wage Per Hour       : 20
+Working Days        : 20
+Working Hours       : 100
+Total Employee Wage : 2000
+--------------------------------
+
+--------------------------------
+Company Name        : Infosys
+Wage Per Hour       : 25
+Working Days        : 22
+Working Hours       : 120
+Total Employee Wage : 3000
+--------------------------------
 ```
 
 **Note:** Output may vary because employee attendance is generated randomly.
