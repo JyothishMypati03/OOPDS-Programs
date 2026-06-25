@@ -1,16 +1,16 @@
-## UC8 - Compute Employee Wage for Multiple Companies
+## UC9 - Ability to Save the Total Wage for Each Company
 
 ### Description
 
-This use case extends the Employee Wage Computation program to calculate wages for multiple companies. Each company has its own wage per hour, maximum working days, and maximum working hours. The employee wage is computed using a class method with function parameters instead of class variables.
+This use case extends the Employee Wage Computation program by introducing instance variables. A separate `EmpWageBuilder` object is created for each company to store company-specific details and compute the total employee wage.
 
 ### Objectives
 
-* Compute employee wages for multiple companies.
-* Use function parameters instead of class variables.
-* Improve code reusability.
-* Reduce code duplication.
-* Make the program flexible for different company requirements.
+* Save the total employee wage for each company.
+* Use instance variables instead of function parameters.
+* Create a separate `EmpWageBuilder` object for each company.
+* Improve code organization using object-oriented programming concepts.
+* Make the program easier to maintain and extend.
 
 ### Assumptions
 
@@ -19,59 +19,61 @@ This use case extends the Employee Wage Computation program to calculate wages f
 * Employee attendance is generated randomly.
 * Each company has its own:
 
+    * Company Name
     * Wage Per Hour
     * Maximum Working Days
     * Maximum Working Hours
 
 ### Algorithm
 
-1. Create a class method named `computeEmployeeWage()`.
-2. Pass the company name, wage per hour, maximum working days, and maximum working hours as function parameters.
-3. Generate employee attendance randomly.
-4. Determine employee working hours using a switch-case statement.
-5. Calculate the daily employee wage.
-6. Continue wage calculation until:
+1. Create a `CompanyEmpWage` class to store company details.
+2. Create an `EmpWageBuilder` class with instance variables.
+3. Initialize company details using a constructor.
+4. Create a `computeEmployeeWage()` method to calculate the total employee wage.
+5. Generate employee attendance randomly.
+6. Determine employee working hours using a switch-case statement.
+7. Continue wage calculation until:
 
     * Maximum Working Days are reached
     * **OR**
     * Maximum Working Hours are reached
-7. Display the employee wage details for the company.
-8. Repeat the process for multiple companies by calling the method with different parameter values.
+8. Store and display the total employee wage for each company.
+9. Repeat the process by creating separate `EmpWageBuilder` objects for different companies.
+
+### Classes Used
+
+```java
+CompanyEmpWage
+EmpWageBuilder
+EmployeeWage
+```
 
 ### Class Method
 
 ```java
-public static void computeEmployeeWage(String company,
-                                       int wagePerHour,
-                                       int maxWorkingDays,
-                                       int maxWorkingHours)
+public void computeEmployeeWage();
 ```
 
 ### Benefits
 
-* Supports multiple companies with different wage policies.
-* Eliminates hard-coded company values.
-* Improves code reusability and flexibility.
-* Makes the program easier to maintain and extend.
+* Uses object-oriented programming concepts.
+* Stores company-specific information using instance variables.
+* Eliminates the need to pass company details as method parameters.
+* Makes the program scalable for multiple companies.
+* Improves code readability, maintainability, and reusability.
 
 ### Sample Output
 
 ```text
---------------------------------
-Company Name        : TCS
-Wage Per Hour       : 20
-Working Days        : 20
-Working Hours       : 100
-Total Employee Wage : 2000
---------------------------------
+------------------------------
+Company Name : TCS
+Total Wage   : 1840
+------------------------------
 
---------------------------------
-Company Name        : Infosys
-Wage Per Hour       : 25
-Working Days        : 22
-Working Hours       : 120
-Total Employee Wage : 3000
---------------------------------
+------------------------------
+Company Name : Infosys
+Total Wage   : 2925
+------------------------------
 ```
 
 **Note:** Output may vary because employee attendance is generated randomly.
