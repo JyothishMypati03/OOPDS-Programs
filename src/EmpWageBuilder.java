@@ -9,7 +9,6 @@ public class EmpWageBuilder implements IEmpWageBuilder {
     // Add company
     @Override
     public void addCompany(CompanyEmpWage company) {
-
         companies.add(company);
     }
 

@@ -1,16 +1,16 @@
-## UC12 - Refactor to Have a List of Multiple Companies to Manage Employee Wage
+## UC13 - Store the Daily Wage Along with the Total Wage
 
 ### Description
 
-This use case refactors the Employee Wage Computation program by replacing the array of `CompanyEmpWage` objects with an `ArrayList`. The `EmpWageBuilder` class manages multiple companies dynamically using the `ArrayList` collection, making the application more flexible and scalable.
+This use case enhances the Employee Wage Computation program by storing the daily employee wage along with the total wage for each company. Daily wages are maintained using an `ArrayList`, allowing the application to keep track of wages earned on each working day.
 
 ### Objectives
 
-* Manage employee wages for multiple companies using an `ArrayList`.
-* Replace the fixed-size array with a dynamic collection.
-* Improve scalability and flexibility.
-* Continue using the interface-based design.
-* Simplify adding and managing companies.
+* Store the daily employee wage for each working day.
+* Store the total employee wage for each company.
+* Use an `ArrayList` to maintain daily wages.
+* Improve record keeping and wage tracking.
+* Continue managing multiple companies using the existing object-oriented design.
 
 ### Assumptions
 
@@ -27,19 +27,18 @@ This use case refactors the Employee Wage Computation program by replacing the a
 ### Algorithm
 
 1. Create a `CompanyEmpWage` class to store company details.
-2. Create an `IEmpWageBuilder` interface.
-3. Implement the interface in the `EmpWageBuilder` class.
-4. Replace the array of `CompanyEmpWage` objects with an `ArrayList<CompanyEmpWage>`.
-5. Add company objects to the `ArrayList` using the `addCompany()` method.
-6. Iterate through the `ArrayList`.
-7. Compute and display the employee wage for each company.
-8. Allow companies to be added dynamically without a fixed size.
+2. Create an `ArrayList<Integer>` to store the daily wages.
+3. Generate employee attendance randomly.
+4. Determine employee working hours using a switch-case statement.
+5. Calculate the daily employee wage.
+6. Store each day's wage in the `ArrayList`.
+7. Add the daily wage to the total wage.
+8. Continue wage computation until:
 
-### Interface
-
-```java
-public interface IEmpWageBuilder
-```
+    * Maximum Working Days are reached
+    * **OR**
+    * Maximum Working Hours are reached
+9. Display the company name, daily wages, and total wage.
 
 ### Classes Used
 
@@ -53,36 +52,33 @@ EmployeeWage
 ### Important Methods
 
 ```java
-public void addCompany(CompanyEmpWage company)
+public void computeEmployeeWage()
 
 public void computeEmployeeWages()
 ```
 
 ### Benefits
 
-* Uses `ArrayList` for dynamic storage.
-* Eliminates the limitations of fixed-size arrays.
-* Makes it easy to add any number of companies.
-* Improves scalability, flexibility, and maintainability.
-* Continues to follow object-oriented programming principles using interfaces.
+* Stores both daily wages and total wage.
+* Makes employee wage records easier to track.
+* Uses `ArrayList` for flexible storage of daily wages.
+* Improves maintainability and scalability.
+* Continues to follow object-oriented programming principles.
 
 ### Sample Output
 
 ```text
---------------------------
+-------------------------------
 Company Name : TCS
-Total Wage   : 1840
---------------------------
+Daily Wages : [160, 80, 0, 160, 80, 160]
+Total Wage  : 1840
+-------------------------------
 
---------------------------
+-------------------------------
 Company Name : Infosys
-Total Wage   : 2925
---------------------------
-
---------------------------
-Company Name : Wipro
-Total Wage   : 3600
---------------------------
+Daily Wages : [200, 100, 0, 200, 200, 100]
+Total Wage  : 2950
+-------------------------------
 ```
 
 **Note:** Output may vary because employee attendance is generated randomly.
