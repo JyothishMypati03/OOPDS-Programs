@@ -4,5 +4,5 @@ public interface IEmpWageBuilder {
 
     void computeEmployeeWages();
 
-    
+    int getTotalWage(String company);
 }

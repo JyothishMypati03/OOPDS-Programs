@@ -3,19 +3,14 @@ import java.util.Random;
 
 public class CompanyEmpWage {
 
-    // Instance variables
     private String company;
     private int wagePerHour;
     private int maxWorkingDays;
     private int maxWorkingHours;
 
-    // Store daily wages
     private ArrayList<Integer> dailyWages = new ArrayList<>();
-
-    // Store total wage
     private int totalWage;
 
-    // Constructor
     public CompanyEmpWage(String company,
                           int wagePerHour,
                           int maxWorkingDays,
@@ -27,7 +22,6 @@ public class CompanyEmpWage {
         this.maxWorkingHours = maxWorkingHours;
     }
 
-    // Compute employee wage
     public void computeEmployeeWage() {
 
         Random random = new Random();
@@ -43,7 +37,6 @@ public class CompanyEmpWage {
 
             totalWorkingDays++;
 
-            // Attendance
             int employeeCheck = random.nextInt(3);
 
             int employeeHours = 0;
@@ -64,15 +57,20 @@ public class CompanyEmpWage {
 
             totalWorkingHours += employeeHours;
 
-            // Calculate daily wage
             int dailyWage = employeeHours * wagePerHour;
 
-            // Store daily wage
             dailyWages.add(dailyWage);
 
-            // Add to total wage
             totalWage += dailyWage;
         }
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public int getTotalWage() {
+        return totalWage;
     }
 
     @Override

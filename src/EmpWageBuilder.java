@@ -1,18 +1,15 @@
-import java.util.*;
 import java.util.ArrayList;
 
 public class EmpWageBuilder implements IEmpWageBuilder {
 
-    // ArrayList to store multiple companies
     private ArrayList<CompanyEmpWage> companies = new ArrayList<>();
 
-    // Add company
     @Override
     public void addCompany(CompanyEmpWage company) {
+
         companies.add(company);
     }
 
-    // Compute wages for all companies
     @Override
     public void computeEmployeeWages() {
 
@@ -20,9 +17,23 @@ public class EmpWageBuilder implements IEmpWageBuilder {
 
             company.computeEmployeeWage();
 
-            System.out.println("--------------------------");
+            System.out.println("----------------------------");
             System.out.println(company);
-            System.out.println("--------------------------");
+            System.out.println("----------------------------");
         }
+    }
+
+    // Return total wage based on company name
+    @Override
+    public int getTotalWage(String companyName) {
+
+        for (CompanyEmpWage company : companies) {
+
+            if (company.getCompany().equalsIgnoreCase(companyName)) {
+                return company.getTotalWage();
+            }
+        }
+
+        return 0;
     }
 }
